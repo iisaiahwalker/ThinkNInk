@@ -15,3 +15,9 @@ if (!isset($_SESSION["student_id"])) {
     <title>ThinkNInk Dashboard</title>
 </head>
 <body>
+
+<h2>Welcome to ThinkNInk</h2>
+<p>You are logged in as <?php echo $_SESSION["email"]; ?></p>
+
+</body>
+</html>
