@@ -1,17 +1,20 @@
---  ThinkNInk database Tables 
---  Run the thinknink_tables.sql, then thinknink_values.sql
---------------------------------------------------------------------
+-- ------------------------------------------------------------------
+-- ThinkNInk database Tables 
+-- Run the thinknink_tables.sql, then thinknink_values.sql
+-- ------------------------------------------------------------------
 
 DROP DATABASE IF EXISTS ThinkNInk;
 CREATE DATABASE ThinkNInk;
 USE ThinkNInk;
-
+-- ------------------------------------------------------------------
 -- password stores MD5 hash — never plain text
+-- ------------------------------------------------------------------
 CREATE TABLE Students (
     student_id   VARCHAR(10)  PRIMARY KEY,
     first_name   VARCHAR(50)  NOT NULL,
     last_name    VARCHAR(50)  NOT NULL,
     email        VARCHAR(100) NOT NULL UNIQUE,
+    phone_number VARCHAR(20),
     password     VARCHAR(32)  NOT NULL
 );
 
@@ -77,10 +80,11 @@ CREATE INDEX idx_privnotes_topic     ON Private_Notes(topic);
 CREATE INDEX idx_classnotes_privnote ON Class_Notes(private_notes_id);
 CREATE INDEX idx_classnotes_student  ON Class_Notes(student_id);
 CREATE INDEX idx_tests_course        ON Tests(course_id);
-
+-- ------------------------------------------------------------------
 -- Trigger 
 -- auto-updates updated_date on every Private_Notes edit
 -- do NOT manually set updated_date in PHP UPDATE queries
+-- ------------------------------------------------------------------
 DELIMITER $$
 CREATE TRIGGER trg_update_note_timestamp
 BEFORE UPDATE ON Private_Notes
@@ -89,10 +93,10 @@ BEGIN
     SET NEW.updated_date = NOW();
 END$$
 DELIMITER ;
-
+-- ------------------------------------------------------------------
 -- Views 
 -- Enrolled courses per student — powers the class dashboard
-
+-- ------------------------------------------------------------------
 CREATE VIEW View_Student_Dashboard AS
 SELECT
     e.student_id,
@@ -103,8 +107,9 @@ SELECT
     c.occupancy
 FROM Enrollment e
 JOIN Courses c ON e.course_id = c.course_id;
-
+-- ------------------------------------------------------------------
 -- Shared notes per course with student info and note content
+-- ------------------------------------------------------------------
 CREATE VIEW View_Class_Notes AS
 SELECT
     cn.class_notes_id,
@@ -121,8 +126,9 @@ SELECT
 FROM Class_Notes cn
 JOIN Private_Notes pn ON cn.private_notes_id = pn.private_notes_id
 JOIN Students s       ON cn.student_id = s.student_id;
-
+-- ------------------------------------------------------------------
 -- Student notes matched to a test by chapter and topic — powers note filtering
+-- ------------------------------------------------------------------
 CREATE VIEW View_Test_Filter AS
 SELECT
     t.test_id,

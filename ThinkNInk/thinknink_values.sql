@@ -1,33 +1,34 @@
+-- ---------------------------------------------------------------------------------------------------------
 -- Thinknink Inserted values
--- PVAMU used as reference institution for test data only.The system is designed to work for any university.
------------------------------------------------------------------------------------------------------------
+-- PVAMU used as reference institution for test data only.
+-- ---------------------------------------------------------------------------------------------------------
 
-
+-- ------------------------------------------------------------------
 -- Passwords are MD5 hashed. Plain text for testing:
 -- A00123456 → Jordan@26  |  A00234567 → Maya@26
 -- A00345678 → Devon@26   |  A00456789 → Aaliyah@26
 -- A00567890 → Marcus@26
-
-INSERT INTO Students (student_id, first_name, last_name, email, password) VALUES
-    ('A00123456', 'Jordan',  'Hayes',   'jhayes@students.pvamu.edu',   'b13d881831d9b349355e9e785d336788'),
-    ('A00234567', 'Maya',    'Collins', 'mcollins@students.pvamu.edu', '5b3051caf90d7dc5df698037050f6afb'),
-    ('A00345678', 'Devon',   'Brooks',  'dbrooks@students.pvamu.edu',  '304d9ed1cd7d5786748759ebd2add7ed'),
-    ('A00456789', 'Aaliyah', 'Turner',  'aturner@students.pvamu.edu',  'f9615ea2f1b4943e6f057339be3dcf1a'),
-    ('A00567890', 'Marcus',  'Reed',    'mreed@students.pvamu.edu',    '3101770976728646d0152cb0b9c82691');
+-- ------------------------------------------------------------------
+INSERT INTO Students (student_id, first_name, last_name, email,phone_number, password) VALUES
+    ('A00123456', 'Jordan',  'Hayes',   'jhayes@students.pvamu.edu', '9362611042',  'b13d881831d9b349355e9e785d336788'),
+    ('A00234567', 'Maya',    'Collins', 'mcollins@students.pvamu.edu','7134489021', '5b3051caf90d7dc5df698037050f6afb'),
+    ('A00345678', 'Devon',   'Brooks',  'dbrooks@students.pvamu.edu', '2813308004', '304d9ed1cd7d5786748759ebd2add7ed'),
+    ('A00456789', 'Aaliyah', 'Turner',  'aturner@students.pvamu.edu', '9364729301',  'f9615ea2f1b4943e6f057339be3dcf1a'),
+    ('A00567890', 'Marcus',  'Reed',    'mreed@students.pvamu.edu',    '8325557718',   '3101770976728646d0152cb0b9c82691');
 
 INSERT INTO Courses (course_id, course_name, section_number, semester, occupancy) VALUES
     ('COSC1301-001', 'Introduction to Computer Science', '001', 'Spring 2026', 35),
     ('COSC3311-002', 'Database Management',              '002', 'Spring 2026', 30),
     ('MATH1401-001', 'Calculus I',                       '001', 'Spring 2026', 40),
     ('COSC3321-003', 'Operating Systems',                '003', 'Spring 2026', 25);
-
+-- -----------------------------------------------------------------------------------
 -- Example 
 -- Jordan  → Intro Introduction to Computer Science, Database Management, Calculus I
 -- Maya    → Intro Introduction to Computer Science, Operating Systems
 -- Devon   → Database Management, Calculus I
 -- Aaliyah → Intro Introduction to Computer Science, Database Management, Operating Systems
 -- Marcus  → Calculus I, Operating Systems
-
+-- -------------------------------------------------------------------------------------------
 INSERT INTO Enrollment (student_id, course_id) VALUES
     ('A00123456', 'COSC1301-001'),
     ('A00123456', 'COSC3311-002'),
