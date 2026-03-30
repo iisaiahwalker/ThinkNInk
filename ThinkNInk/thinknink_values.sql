@@ -10,7 +10,7 @@
 -- A00567890 → Marcus@26
 -- ------------------------------------------------------------------
 INSERT INTO Students (student_id, first_name, last_name, email,phone_number, password) VALUES
-    ('A00123456', 'Jordan',  'Hayes',   'jhayes@students.pvamu.edu', '9362611042',  'b13d881831d9b349355e9e785d336788'),
+('A00123456', 'Jordan',  'Hayes',   'jhayes@students.pvamu.edu', '9362611042',  'b13d881831d9b349355e9e785d336788'),
     ('A00234567', 'Maya',    'Collins', 'mcollins@students.pvamu.edu','7134489021', '5b3051caf90d7dc5df698037050f6afb'),
     ('A00345678', 'Devon',   'Brooks',  'dbrooks@students.pvamu.edu', '2813308004', '304d9ed1cd7d5786748759ebd2add7ed'),
     ('A00456789', 'Aaliyah', 'Turner',  'aturner@students.pvamu.edu', '9364729301',  'f9615ea2f1b4943e6f057339be3dcf1a'),
