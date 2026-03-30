@@ -19,5 +19,7 @@ if (!isset($_SESSION["student_id"])) {
 <h2>Welcome to ThinkNInk</h2>
 <p>You are logged in as <?php echo $_SESSION["email"]; ?></p>
 
+<a href="logout.php">Logout</a>
+
 </body>
 </html>
