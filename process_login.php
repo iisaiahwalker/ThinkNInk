@@ -19,12 +19,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows === 1) {
         $student = $result->fetch_assoc();
 
-        if ($password === $student["password"]) {
+        if (md5($password) === $student["password"]) {
 
-            // 🔐 Generate 6-digit code
+            //  Generate 6-digit code
             $code = rand(100000, 999999);
 
-            // 🧠 Save code in database
+            //  Save code in database
             $update = $conn->prepare("
                 UPDATE Students 
                 SET verification_code = ?, 
