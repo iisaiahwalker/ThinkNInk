@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --ink-900: #221239;
+    --ink-700: #5a3f87;
+    --teal-500: #8f45ed;
+    --teal-400: #b082ff;
+    --card: #ffffff;
+}
+
+body {
+    font-family: "Space Grotesk", "Avenir Next", "Segoe UI", sans-serif;
+    min-height: 100vh;
+    color: var(--ink-900);
+    padding: clamp(1rem, 2vw, 2.5rem);
+    background:
+        linear-gradient(120deg, rgba(176, 130, 255, 0.18) 0%, rgba(31, 15, 53, 0) 42%),
+        radial-gradient(circle at top right, rgba(143, 69, 237, 0.24), transparent 45%),
+        #f4efff;
+}
+
+.dashboard-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.dashboard-header {
+    margin-bottom: 2rem;
+    animation: fade-up 0.55s ease-out;
+}
+
+.dashboard-header-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.dashboard-title {
+    min-width: 0;
+}
+
+.dashboard-header h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 0.35rem;
+    color: #1a1030;
+}
+
+.dashboard-header p {
+    font-size: 1rem;
+    color: #5d4d79;
+}
+
+.log-out-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.55rem 0.8rem;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #a855f7, #7e22ce);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    box-shadow: 0 8px 18px rgba(74, 24, 117, 0.35);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+    white-space: nowrap;
+}
+
+.log-out-link:hover,
+.log-out-link:focus-visible {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(74, 24, 117, 0.44);
+    filter: brightness(1.05);
+}
+
+.canvas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1rem;
+}
+
+.canvas-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    text-decoration: none;
+    background: var(--card);
+    padding: 1.3rem;
+    border-radius: 16px;
+    border: 1px solid #e2d3ff;
+    box-shadow: 0 14px 26px rgba(74, 44, 122, 0.12);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    color: inherit;
+    animation: fade-up 0.55s ease-out;
+}
+
+.canvas-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 30px rgba(74, 44, 122, 0.18);
+    border-color: #c8abff;
+}
+
+.canvas-card h2 {
+    font-size: 1.1rem;
+    color: var(--ink-900);
+}
+
+.canvas-card p {
+    font-size: 0.94rem;
+    color: #5f4f7b;
+    line-height: 1.45;
+}
+
+.canvas-card span {
+    margin-top: auto;
+    font-size: 0.85rem;
+    color: var(--teal-500);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
+@keyframes fade-up {
+    from {
+        transform: translateY(18px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

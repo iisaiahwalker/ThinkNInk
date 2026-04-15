@@ -1,0 +1,231 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Space Grotesk", "Avenir Next", "Segoe UI", sans-serif;
+    background: #f2ecff;
+    color: #271748;
+    min-height: 100vh;
+}
+
+.app-container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 220px;
+    background: linear-gradient(180deg, #2f1657, #5a2c93);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px 16px;
+    box-shadow: 4px 0 16px rgba(5, 20, 30, 0.2);
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 26px;
+    letter-spacing: 0.02em;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #e8f6ff;
+    padding: 11px 12px;
+    border-radius: 9px;
+    transition: background 0.2s ease, transform 0.2s ease;
+    font-size: 0.94rem;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    background: rgba(219, 199, 255, 0.22);
+    transform: translateX(2px);
+}
+
+.sidebar-footer {
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background:
+        radial-gradient(circle at 85% 8%, rgba(143, 69, 237, 0.24), transparent 36%),
+        #f2ecff;
+}
+
+.topbar {
+    height: 80px;
+    background: #ffffffcc;
+    border-bottom: 1px solid #e2d4ff;
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 22px;
+}
+
+.topbar h1 {
+    font-size: clamp(1.2rem, 2.8vw, 1.65rem);
+    color: #2a1748;
+}
+
+.new-note-btn {
+    background: linear-gradient(135deg, #8f45ed, #6c3fae);
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 9px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.new-note-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 9px 18px rgba(111, 67, 181, 0.36);
+}
+
+.canvas-area {
+    flex: 1;
+    overflow: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    align-content: start;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.card {
+    background: white;
+    border-radius: 14px;
+    padding: 1rem;
+    min-height: 165px;
+    box-shadow: 0 13px 22px rgba(68, 39, 115, 0.17);
+    border: 1px solid rgba(112, 70, 178, 0.16);
+    animation: fade-up 0.48s ease-out;
+}
+
+.card h2 {
+    font-size: 1.1rem;
+    color: #2e1d50;
+    margin-bottom: 0.65rem;
+}
+
+.card p {
+    font-size: 0.95rem;
+    line-height: 1.45;
+    color: #5b4e75;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.card-actions {
+    display: flex;
+    gap: 0.35rem;
+}
+
+.action-btn {
+    border: 1px solid rgba(112, 70, 178, 0.25);
+    background: #f8f4ff;
+    color: #4c3178;
+    border-radius: 8px;
+    padding: 0.45rem 0.75rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease;
+}
+
+.action-btn:hover {
+    transform: translateY(-1px);
+    background: #efebff;
+}
+
+.action-btn.delete-note {
+    border-color: rgba(240, 89, 92, 0.28);
+    color: #bb2649;
+}
+
+.action-btn.edit-note {
+    border-color: rgba(84, 104, 255, 0.28);
+    color: #2f3eb7;
+}
+
+.sidebar-footer a.log-out-link:link,
+.sidebar-footer a.log-out-link:visited,
+.sidebar-footer a.log-out-link:hover,
+.sidebar-footer a.log-out-link:active {
+    color: #ffffff;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0.55rem 0.8rem;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #a855f7, #7e22ce);
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    box-shadow: 0 8px 18px rgba(74, 24, 117, 0.35);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+.sidebar-footer a.log-out-link:hover,
+.sidebar-footer a.log-out-link:focus-visible {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(74, 24, 117, 0.44);
+    filter: brightness(1.05);
+}
+
+.sidebar-footer a.log-out-link:focus-visible {
+    outline: 2px solid #f3e8ff;
+    outline-offset: 2px;
+}
+
+@keyframes fade-up {
+    from {
+        transform: translateY(14px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 820px) {
+    .app-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        gap: 0.9rem;
+    }
+
+    .nav-menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}

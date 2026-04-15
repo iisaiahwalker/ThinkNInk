@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --ink-950: #130a25;
+    --ink-700: #4a2f76;
+    --mint-400: #b98aff;
+    --mint-500: #8e44ec;
+    --cloud-100: #f5f1ff;
+    --card: #ffffff;
+}
+
+body {
+    font-family: "Space Grotesk", "Avenir Next", "Segoe UI", sans-serif;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    background:
+        radial-gradient(1200px 700px at 10% 10%, #3c1f67 0%, transparent 65%),
+        radial-gradient(1000px 600px at 90% 85%, #2a184a 0%, transparent 70%),
+        var(--ink-950);
+}
+
+.login-container {
+    width: min(430px, 100%);
+    background: var(--card);
+    padding: 2rem;
+    border-radius: 24px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    animation: rise 0.55s ease-out;
+}
+
+.brand {
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-700);
+    margin-bottom: 0.4rem;
+    font-weight: 700;
+}
+
+.login-container h1 {
+    font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+    color: #291746;
+}
+
+.subtitle {
+    color: #64537f;
+    margin: 0.65rem 0 1.6rem;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.input-group label {
+    font-size: 0.86rem;
+    color: #58487a;
+    font-weight: 600;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.8rem 0.9rem;
+    margin-top: 0.4rem;
+    border-radius: 10px;
+    border: 1px solid #ddc8ff;
+    background: var(--cloud-100);
+    font: inherit;
+}
+
+.input-group input:focus {
+    outline: 2px solid #cfb1ff;
+    border-color: var(--mint-400);
+}
+
+.login-button {
+    display: block;
+    width: 100%;
+    padding: 0.9rem 1rem;
+    margin-top: 0.65rem;
+    background: linear-gradient(135deg, var(--mint-500), #6d3db5);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+}
+
+.login-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 18px rgba(111, 67, 181, 0.35);
+}
+
+@keyframes rise {
+    from {
+        transform: translateY(18px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.message {
+    margin: 1rem 0 0.8rem;
+    padding: 1rem;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.demo-message {
+    background: #f3ecff;
+    border: 1px solid #d9c3ff;
+    color: #43266d;
+}
+
+.error-message {
+    background: #ffe8ec;
+    border: 1px solid #f5bcc9;
+    color: #a52847;
+}
+
+.message-label {
+    display: block;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.4rem;
+    font-weight: 700;
+}
+
+.demo-code {
+    display: block;
+    font-size: 2rem;
+    letter-spacing: 0.18em;
+    color: #291746;
+}
+
+.action-stack {
+    margin-top: 1rem;
+}
+
+.action-link {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+}
+
+.secondary-link {
+    display: inline-block;
+    margin-top: 0.9rem;
+    color: var(--mint-500);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.secondary-link:hover {
+    text-decoration: underline;
+}
