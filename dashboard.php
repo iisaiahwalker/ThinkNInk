@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 session_start();
 
 if (!isset($_SESSION["student_id"])) {
@@ -27,7 +28,7 @@ if (!isset($_SESSION["student_id"])) {
                     <h1>Dashboard</h1>
                     <p>Welcome back. Select a class to open your notes.</p>
                 </div>
-                <a href="login.php" class="log-out-link">Logout</a>
+                <a href="logout.php" class="log-out-link">Logout</a>
             </div>
         </header>
 
