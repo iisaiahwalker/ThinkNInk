@@ -29,3 +29,10 @@ if (ini_get("session.use_cookies")) {
 session_destroy();
 
 redirect("login.php"); // update if your team's login page has a different name
+session_start();
+session_unset();
+session_destroy();
+
+header("Location: login.php");
+exit();
+?>
