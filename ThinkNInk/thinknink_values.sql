@@ -2,26 +2,27 @@
 -- Thinknink Inserted values
 -- PVAMU used as reference institution for test data only.
 -- ---------------------------------------------------------------------------------------------------------
-
 -- ------------------------------------------------------------------
--- Passwords are MD5 hashed. Plain text for testing:
+-- Passwords are hashed with password_hash() for authentication testing.
+-- Plain text for testing:
 -- A00123456 → Jordan@26   |  A00234567 → Maya@26
 -- A00345678 → Devon@26    |  A00456789 → Aaliyah@26
 -- A00567890 → Marcus@26   |  A00678901 → Zoe@26
 -- A00789012 → Elijah@26   |  A00890123 → Priya@26
 -- A00901234 → Nathan@26   |  A00012345 → Simone@26
 -- ------------------------------------------------------------------
+
 INSERT INTO Students (student_id, first_name, last_name, email, phone_number, password) VALUES
-    ('A00123456', 'Jordan',  'Hayes',      'jhayes@students.pvamu.edu',      '9362611042', 'b13d881831d9b349355e9e785d336788'),
-    ('A00234567', 'Maya',    'Collins',    'mcollins@students.pvamu.edu',    '7134489021', '5b3051caf90d7dc5df698037050f6afb'),
-    ('A00345678', 'Devon',   'Brooks',     'dbrooks@students.pvamu.edu',     '2813308004', '304d9ed1cd7d5786748759ebd2add7ed'),
-    ('A00456789', 'Aaliyah', 'Turner',     'aturner@students.pvamu.edu',     '9364729301', 'f9615ea2f1b4943e6f057339be3dcf1a'),
-    ('A00567890', 'Marcus',  'Reed',       'mreed@students.pvamu.edu',       '8325557718', '3101770976728646d0152cb0b9c82691'),
-    ('A00678901', 'Zoe',     'Washington', 'zwashington@students.pvamu.edu', '9361234567', '4fba2e32e8bd1ebc3a378f15a180926f'),
-    ('A00789012', 'Elijah',  'Carter',     'ecarter@students.pvamu.edu',     '7139876543', '5ef74001331e88f7f011ec22fc5e9392'),
-    ('A00890123', 'Priya',   'Patel',      'ppatel@students.pvamu.edu',      '2814567890', '8e7df0e2c91c09260a2c205d5f29d073'),
-    ('A00901234', 'Nathan',  'Foster',     'nfoster@students.pvamu.edu',     '8323219876', 'a43ec89bc30ce68ff0845521d71f3603'),
-    ('A00012345', 'Simone',  'James',      'sjames@students.pvamu.edu',      '9368765432', 'e928758ac06c5c81cfa607a2a9191d3b');
+    ('A00123456', 'Jordan',  'Hayes',      'jhayes@students.pvamu.edu',      '9362611042', '$2y$12$f67Lxl4QAbJiQ65Tb7H.DeakZWvs7yaq79Ki0vtCOOxKUlHyijN4S'),
+    ('A00234567', 'Maya',    'Collins',    'mcollins@students.pvamu.edu',    '7134489021', '$2y$12$5A2vjWHWg33YEG0xUThmYOJ76iLh04gAUKJPsDOF4y1.desnMON1q'),
+    ('A00345678', 'Devon',   'Brooks',     'dbrooks@students.pvamu.edu',     '2813308004', '$2y$12$ilaM/LwWkXedqfSh65/ZC.LifntI8WQy0NxHKJaxNanWMA35DGYNi'),
+    ('A00456789', 'Aaliyah', 'Turner',     'aturner@students.pvamu.edu',     '9364729301', '$2y$12$ncFyhZ3i.Kn2OGkxSbRFhetpYrUUiqj6Y625gL8GDYu0dV6psN8ZK'),
+    ('A00567890', 'Marcus',  'Reed',       'mreed@students.pvamu.edu',       '8325557718', '$2y$12$qhwHFu.4HMIKlVoc1dNb4u0UiFPwP6oayy/iIrCSIRDTZVQj13Foq'),
+    ('A00678901', 'Zoe',     'Washington', 'zwashington@students.pvamu.edu', '9361234567', '$2y$12$Tj10ccVTe5KOjRnguuSKz.04O6Nzzq0mFCLkP.mi8ilCZ7oZfgZu2'),
+    ('A00789012', 'Elijah',  'Carter',     'ecarter@students.pvamu.edu',     '7139876543', '$2y$12$frcWX3yfooJlyH.LDHNVZuX2Fj0Bk48Awd0xQpPIx9iUBam4Uz.iS'),
+    ('A00890123', 'Priya',   'Patel',      'ppatel@students.pvamu.edu',      '2814567890', '$2y$12$rE45k8ePXSlMgfU7UPxcFeuhP9Rf5STPzQ0Z47lkgWt.HyHCEvwQu'),
+    ('A00901234', 'Nathan',  'Foster',     'nfoster@students.pvamu.edu',     '8323219876', '$2y$12$EjMhOR74S3MGEezOTzwgyeIe7lvtpf6I//wA2.LNx07yrD5qA3eQe'),
+    ('A00012345', 'Simone',  'James',      'sjames@students.pvamu.edu',      '9368765432', '$2y$12$fH4SMeZj3/.H3adHP0Z2vea5tAle4lfppxr8d30l2LxkR3Kf3nMN6');
 
 -- ─────────────────────────────────────────────────────────────────
 INSERT INTO Courses (course_id, course_name, section_number, semester, occupancy) VALUES
