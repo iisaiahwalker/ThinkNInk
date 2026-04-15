@@ -78,15 +78,13 @@ CREATE TABLE Tests (
 -- ------------------------------------------------------------------
 CREATE TABLE password_resets (
     id         INT          PRIMARY KEY AUTO_INCREMENT,
-    email      VARCHAR(255) NOT NULL,
-    token      VARCHAR(64)  NOT NULL,
+    email      VARCHAR(100) NOT NULL,
+    token      VARCHAR(64)  NOT NULL UNIQUE,
     expiration DATETIME     NOT NULL,
     used       TINYINT(1)   NOT NULL DEFAULT 0,
     created_at DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    INDEX idx_token (token),
     INDEX idx_email (email)
 );
-
 CREATE INDEX idx_enrollment_student  ON Enrollment(student_id);
 CREATE INDEX idx_enrollment_course   ON Enrollment(course_id);
 CREATE INDEX idx_privnotes_student   ON Private_Notes(student_id);
