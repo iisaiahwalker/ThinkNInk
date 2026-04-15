@@ -7,15 +7,17 @@ DROP DATABASE IF EXISTS ThinkNInk;
 CREATE DATABASE ThinkNInk;
 USE ThinkNInk;
 -- ------------------------------------------------------------------
--- password stores MD5 hash — never plain text
+-- password stores bcrypt hash via password_hash()
 -- ------------------------------------------------------------------
 CREATE TABLE Students (
-    student_id   VARCHAR(10)  PRIMARY KEY,
-    first_name   VARCHAR(50)  NOT NULL,
-    last_name    VARCHAR(50)  NOT NULL,
-    email        VARCHAR(100) NOT NULL UNIQUE,
-    phone_number VARCHAR(20),
-    password     VARCHAR(32)  NOT NULL
+    student_id        VARCHAR(10)  PRIMARY KEY,
+    first_name        VARCHAR(50)  NOT NULL,
+    last_name         VARCHAR(50)  NOT NULL,
+    email             VARCHAR(100) NOT NULL UNIQUE,
+    phone_number      VARCHAR(20),
+    verification_code INT,
+    code_expiration   DATETIME,
+    password          VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE Courses (
@@ -69,6 +71,20 @@ CREATE TABLE Tests (
     chapter   VARCHAR(50),
     topic     VARCHAR(100),
     FOREIGN KEY (course_id) REFERENCES Courses(course_id) ON DELETE CASCADE
+);
+
+-- ------------------------------------------------------------------
+-- Stores password reset tokens for the forgot password flow
+-- ------------------------------------------------------------------
+CREATE TABLE password_resets (
+    id         INT          PRIMARY KEY AUTO_INCREMENT,
+    email      VARCHAR(255) NOT NULL,
+    token      VARCHAR(64)  NOT NULL,
+    expiration DATETIME     NOT NULL,
+    used       TINYINT(1)   NOT NULL DEFAULT 0,
+    created_at DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    INDEX idx_token (token),
+    INDEX idx_email (email)
 );
 
 CREATE INDEX idx_enrollment_student  ON Enrollment(student_id);
