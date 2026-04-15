@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 
+session_start();
 require_once "db_connect.php";
 
 function redirect(string $url): never {
@@ -16,24 +17,25 @@ $email = strtolower(trim($_POST["email"] ?? ""));
 
 if (
     !filter_var($email, FILTER_VALIDATE_EMAIL) ||
-    !str_ends_with($email, "@pvamu.edu")
+    !str_ends_with($email, "@students.pvamu.edu")
 ) {
-    redirect("forgot_password.php?error=invalid_email");
+    redirect("forgot_password.php?error=Only+PVAMU+student+email+addresses+are+allowed.");
 }
 
-$stmt = $conn->prepare("SELECT student_id FROM Students WHERE email = ?");
+$stmt = $conn->prepare("
+    SELECT student_id
+    FROM Students
+    WHERE email = ?
+    LIMIT 1
+");
 $stmt->bind_param("s", $email);
 $stmt->execute();
 $result = $stmt->get_result();
 
-$studentId = null;
-if ($result->num_rows === 1) {
-    $row = $result->fetch_assoc();
-    $studentId = $row["student_id"];
-}
+$studentExists = ($result->num_rows === 1);
 $stmt->close();
 
-if ($studentId !== null) {
+if ($studentExists) {
     $invalidate = $conn->prepare("
         UPDATE password_resets
         SET used = 1
@@ -54,7 +56,13 @@ if ($studentId !== null) {
     $insert->close();
 
     // DEV ONLY:
-    error_log("Reset token for $email: $token");
+    // error_log("Reset link for $email: http://localhost/ThinkNInk/reset_password.php?token=" . $token);
+
+    // Optional for local testing:
+    $_SESSION["reset_token_debug"] = $token;
+}
+
+redirect("forgot_password.php?status=If+that+email+is+registered,+you+will+receive+a+reset+link.");
 
     // In production, email the reset link instead
     // $resetLink = "https://yourdomain.com/reset_password.php?token=" . urlencode($token);
