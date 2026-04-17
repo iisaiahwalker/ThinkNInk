@@ -86,62 +86,104 @@ ThinkNInk/
 │
 
 ├── api/ 
-  └── courses/
-    └── get_courses.php
-  └── notes/ # Notes CRUD APIs
-    └──copy_shared.php
-    └──create.php
-    └──delete.php
-    └──get.php
-    └──get_all.php
-    └──get_shared.php
-    └──share.php
-    └──unshare.php
-    └──update.php
-  └── tests/ # Study guide APIs
-    └──create_test.php
-    └──delete_test.php
-    └──get_tests.php
-    └──smart_filter_notes.php
-  └── db_connect.php
+
+    └── courses/
+  
+        └── get_courses.php
+    
+    └── notes/ # Notes CRUD APIs
+  
+        └──copy_shared.php
+    
+        └──create.php
+    
+        └──delete.php
+    
+        └──get.php
+    
+        └──get_all.php
+    
+        └──get_shared.php
+        
+        └──share.php
+    
+        └──unshare.php
+    
+        └──update.php
+    
+    └── tests/ # Study guide APIs
+  
+        └──create_test.php
+    
+        └──delete_test.php
+    
+        └──get_tests.php
+    
+        └──smart_filter_notes.php
+    
+    └── db_connect.php
 
 ├── assests/ 
-  └── uploads/
-  └── style.css
+
+    └── uploads/
+  
+    └── style.css
 
 ├── auth/ # Login & authentication 
-  └──forgot_password.php
-  └──login.php
-  └──logout.php
-  └──process_forget_password.php
-  └──process_login.php
-  └──process_reset_password.php
-  └──process_verification.php
-  └──reset_password.php
-  └──verify_code.php
+
+    └──forgot_password.php
+  
+    └──login.php
+  
+    └──logout.php
+  
+    └──process_forget_password.php
+  
+    └──process_login.php
+  
+    └──process_reset_password.php
+  
+    └──process_verification.php
+  
+    └──reset_password.php
+    
+    └──verify_code.php
 
 ├── classes/ # Class interface (main UI)
-  └──classes.css
-  └──classes.php
+
+    └──classes.css
+  
+    └──classes.php
 
 ├── dashboard/ # Class dashboard
-  └──dashboard.css
-  └──dashboard.php
+
+    └──dashboard.css
+  
+    └──dashboard.php
 
 |── database/ 
-  └──thinknink_tables.sql
-  └──thinknink_values.sql
+
+    └──thinknink_tables.sql
+  
+    └──thinknink_values.sql
 
 ├── notes/ # Note editor + snapshots 
-  └──editor.css
-  └──editor.js
-  └──export
-  └──note_editor
-  └──notes_snapshot
-  └──shared_notes
-  └──view_shared
 
-└── index.php
+    └──editor.css
+  
+    └──editor.js
+  
+    └──export
+  
+    └──note_editor
+  
+    └──notes_snapshot
+  
+    └──shared_notes
+  
+    └──view_shared
+
+  └── index.php
 
 
 ---
