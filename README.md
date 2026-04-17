@@ -82,23 +82,71 @@ ThinkNInk is built as a full-stack PHP web application running on XAMPP (Apache 
 
 ##  Project Structure
 ThinkNInk/
+
 │
-├── auth/ # Login & authentication
-├── dashboard/ # Class dashboard
-├── notes/ # Note editor + snapshots
-├── api/
-│ ├── notes/ # Notes CRUD APIs
-│ └── tests/ # Study guide APIs
-│
+
+├── api/ 
+  └── courses/
+    └── get_courses.php
+  └── notes/ # Notes CRUD APIs
+    └──copy_shared.php
+    └──create.php
+    └──delete.php
+    └──get.php
+    └──get_all.php
+    └──get_shared.php
+    └──share.php
+    └──unshare.php
+    └──update.php
+  └── tests/ # Study guide APIs
+    └──create_test.php
+    └──delete_test.php
+    └──get_tests.php
+    └──smart_filter_notes.php
+  └── db_connect.php
+
+├── assests/ 
+  └── uploads/
+  └── style.css
+
+├── auth/ # Login & authentication 
+  └──forgot_password.php
+  └──login.php
+  └──logout.php
+  └──process_forget_password.php
+  └──process_login.php
+  └──process_reset_password.php
+  └──process_verification.php
+  └──reset_password.php
+  └──verify_code.php
+
 ├── classes/ # Class interface (main UI)
-├── classes.css # Main styling file
-├── db_connect.php # Database connection
-└── README.md
+  └──classes.css
+  └──classes.php
+
+├── dashboard/ # Class dashboard
+  └──dashboard.css
+  └──dashboard.php
+
+|── database/ 
+  └──thinknink_tables.sql
+  └──thinknink_values.sql
+
+├── notes/ # Note editor + snapshots 
+  └──editor.css
+  └──editor.js
+  └──export
+  └──note_editor
+  └──notes_snapshot
+  └──shared_notes
+  └──view_shared
+
+└── index.php
 
 
 ---
 
-## ⚙️ Installation Guide (XAMPP Setup)
+## Installation Guide (XAMPP Setup)
 
 ### 1. Install XAMPP
 Download and install:
@@ -112,7 +160,8 @@ Make sure these services are running:
 
 ### 2. Move Project into htdocs
 
-Place the project folder here: C:\xampp\htdocs\
+Place the project folder here: 
+C:\xampp\htdocs\
 (make sure the folder is unzipped/extracted)
 
 
